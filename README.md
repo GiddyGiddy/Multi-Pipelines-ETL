@@ -2,6 +2,7 @@
 
 A Spring Boot microservice that acts as an **ETL (Extract, Transform, Load) dispatcher**. It reads entity data from a relational database in pages, transforms it into transfer payloads, and publishes the results to a message queue — either **AWS SQS** or **Apache Kafka**, selectable at runtime via configuration.
 
+
 ---
 
 ## Table of Contents
@@ -15,6 +16,7 @@ A Spring Boot microservice that acts as an **ETL (Extract, Transform, Load) disp
 - [Running the Application](#running-the-application)
 - [Development Setup](#development-setup)
 - [Extending the Application](#extending-the-application)
+- [Documentation Coverage and Next Topics](#documentation-coverage-and-next-topics)
 
 ---
 
@@ -284,3 +286,19 @@ mvn spring-boot:run -Dspring-boot.run.profiles=dev
 ### Switching the message transport
 
 Change `etl.messaging.transport` to `kafka` and provide the Kafka broker address. No code changes are needed — the `MessagePublisherStreamBridge` bean activates automatically.
+
+---
+
+## Documentation Coverage and Next Topics
+
+This README currently covers the service architecture, pipeline flow, technology stack, project layout, API routes, configuration, local setup, and how to add a pipeline or switch transports.
+
+The following topics would make the repository documentation more complete:
+
+- **Data contract:** source database tables and fields, entity relationships, and entity-to-event mapping rules.
+- **Message examples:** representative SQS/Kafka payloads, serialization format, and downstream consumer expectations.
+- **Operational setup:** required AWS queues and permissions, Kafka topics, database prerequisites, and environment-specific profiles.
+- **Failure handling:** behavior for database or broker errors, retries, partial pipeline failures, and safe restart/replay procedures.
+- **Testing:** test types, how to run them, and how to provide local database and messaging dependencies.
+- **Deployment and operations:** supported deployment approach, health/monitoring signals, logs, and troubleshooting steps.
+- **Security guidance:** credential provisioning, rotation, and recommended production safeguards for the API and infrastructure.
