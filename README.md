@@ -288,17 +288,3 @@ mvn spring-boot:run -Dspring-boot.run.profiles=dev
 Change `etl.messaging.transport` to `kafka` and provide the Kafka broker address. No code changes are needed — the `MessagePublisherStreamBridge` bean activates automatically.
 
 ---
-
-## Documentation Coverage and Next Topics
-
-This README currently covers the service architecture, pipeline flow, technology stack, project layout, API routes, configuration, local setup, and how to add a pipeline or switch transports.
-
-The following topics would make the repository documentation more complete:
-
-- **Data contract:** source database tables and fields, entity relationships, and entity-to-event mapping rules.
-- **Message examples:** representative SQS/Kafka payloads, serialization format, and downstream consumer expectations.
-- **Operational setup:** required AWS queues and permissions, Kafka topics, database prerequisites, and environment-specific profiles.
-- **Failure handling:** behavior for database or broker errors, retries, partial pipeline failures, and safe restart/replay procedures.
-- **Testing:** test types, how to run them, and how to provide local database and messaging dependencies.
-- **Deployment and operations:** supported deployment approach, health/monitoring signals, logs, and troubleshooting steps.
-- **Security guidance:** credential provisioning, rotation, and recommended production safeguards for the API and infrastructure.
